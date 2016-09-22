@@ -6,8 +6,6 @@ resource "aws_vpc" "vpc" {
 }
 
 resource "aws_internet_gateway" "igw" {
-    count = "${var.enable_internet_gw}"
-
     vpc_id = "${aws_vpc.vpc.id}"
     depends_on = ["aws_vpc.vpc"]
     tags {
@@ -33,6 +31,6 @@ output "vpc_id" {
 output "igw_id" {
     value = "${aws_internet_gateway.igw.id}"
 }
-output "default-tour-table_id" {
+output "default-route-table_id" {
     value = "${aws_route_table.default-route-table.id}"
 }
