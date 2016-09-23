@@ -4,7 +4,7 @@ resource "aws_subnet" "subnets" {
     availability_zone = "${element(var.availability_zones, count.index)}"
     cidr_block = "${element(var.subnets, count.index)}"
     vpc_id = "${var.vpc_id}"
-    map_public_ip_on_launch = "${var.map_public_ip}"
+#    map_public_ip_on_launch = "${var.map_public_ip}"
     tags {
         Name = "${var.app_name}-subnet-${element(var.subnets, count.index)}"
     }

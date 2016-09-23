@@ -21,7 +21,7 @@ resource "aws_route_table" "default-route-table" {
     }
     depends_on = ["aws_vpc.vpc", "aws_internet_gateway.igw"]
     tags {
-        Name = "${var.app_name}-default-route-table}"
+        Name = "${var.app_name}-default-route-table"
     }
 }
 
