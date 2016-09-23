@@ -10,9 +10,7 @@ variable "subnets" {
     type = "list"
 }
 
-variable "route_table_id" {
-    type = "list"
-}
+variable "route_table_id" {}
 
 variable "map_public_ip" {
     default = "true"
