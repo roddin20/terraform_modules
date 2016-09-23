@@ -18,3 +18,7 @@ resource "aws_security_group_rule" "sg_rules" {
 
     security_group_id = "${aws_security_group.security_group.id}"
 }
+
+output "security_group_id" {
+    value = "${aws_security_group.security_group.id}"
+}
