@@ -19,6 +19,8 @@ resource "aws_security_group_rule" "sg_rules" {
     cidr_blocks = "${split(",", lookup(var.sg_rule_cidr_blocks, count.index))}"
 
     security_group_id = "${aws_security_group.security_group.id}"
+
+    depends_on = ["aws_security_group.security_group"]
 }
 
 output "security_group_id" {
