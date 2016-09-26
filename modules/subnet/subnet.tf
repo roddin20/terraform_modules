@@ -17,3 +17,7 @@ resource "aws_route_table_association" "route_assoc" {
     route_table_id = "${var.route_table_id}"
     depends_on = ["aws_subnet.subnets"]
 }
+
+output "subnet_ids" {
+    value = "${aws_subnet.subnets.*.id}"
+}
