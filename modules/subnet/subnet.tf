@@ -19,5 +19,5 @@ resource "aws_route_table_association" "route_assoc" {
 }
 
 output "subnet_ids" {
-    value = "${aws_subnet.subnets.*.id}"
+    value = ["${aws_subnet.subnets.*.id}"]
 }
