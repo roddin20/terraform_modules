@@ -1,3 +1,11 @@
+data "template_file" "user_data" {
+    template = "${file("${path.module}/cloud-config/compute.yml")}"
+
+    vars {
+        ssh_pub_key = "${var.ssh_pub_key}"
+    }
+}
+
 resource "aws_instance" "instance" {
     count = "${var.instance_count}"
 
@@ -7,7 +15,7 @@ resource "aws_instance" "instance" {
     subnet_id = "${var.subnet_id}"
     vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
 
-    user_data = "${file("${path.module}/cloud-config/compute.yml")}"
+    user_data = "${data.template_file.user_data.rendered}"
 
     tags {
         Name = "${var.app_name}-${var.instance_name}"
