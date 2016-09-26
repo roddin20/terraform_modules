@@ -10,7 +10,7 @@ resource "aws_instance" "instance" {
     user_data = "${file("cloud-config/compute.yml")}"
 
     tags {
-        Name = "${var.app_name}-instance"
+        Name = "${var.app_name}-${var.instance_name}"
         Role = "${var.role}"
     }
 }
