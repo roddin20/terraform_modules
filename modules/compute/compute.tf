@@ -7,7 +7,7 @@ resource "aws_instance" "instance" {
     subnet_id = "${var.subnet_id}"
     vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
 
-    user_data = "${file("cloud-config/compute.yml")}"
+    user_data = "${file("${path.module}/modules/compute/cloud-config/compute.yml")}"
 
     tags {
         Name = "${var.app_name}-${var.instance_name}"
