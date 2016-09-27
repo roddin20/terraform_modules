@@ -20,5 +20,6 @@ resource "aws_instance" "instance" {
     tags {
         Name = "${var.app_name}-${var.instance_name}"
         Role = "${var.role}"
+        AppName = "$${var.app_name}"
     }
 }

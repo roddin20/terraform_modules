@@ -2,6 +2,7 @@ resource "aws_vpc" "vpc" {
     cidr_block = "${var.vpc_cidr}"
     tags {
         Name = "${var.app_name}-vpc"
+        AppName = "${var.app_name}"
     }
 }
 
@@ -10,6 +11,7 @@ resource "aws_internet_gateway" "igw" {
     depends_on = ["aws_vpc.vpc"]
     tags {
         Name = "${var.app_name}-igw"
+        AppName = "${var.app_name}"
     }
 }
 
@@ -22,6 +24,7 @@ resource "aws_route_table" "default-route-table" {
     depends_on = ["aws_vpc.vpc", "aws_internet_gateway.igw"]
     tags {
         Name = "${var.app_name}-default-route-table"
+        AppName = "${var.app_name}"
     }
 }
 

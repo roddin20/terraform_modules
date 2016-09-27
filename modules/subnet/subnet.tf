@@ -7,6 +7,7 @@ resource "aws_subnet" "subnets" {
     map_public_ip_on_launch = "${var.map_public_ip}"
     tags {
         Name = "${var.app_name}-subnet-${element(var.subnets, count.index)}"
+        AppName = "${var.app_name}"
     }
 }
 

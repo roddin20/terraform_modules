@@ -6,6 +6,7 @@ resource "aws_security_group" "security_group" {
 
     tags {
         Name = "${var.app_name}-sg-${var.name}"
+        AppName = "${var.app_name}"
     }
 }
 
